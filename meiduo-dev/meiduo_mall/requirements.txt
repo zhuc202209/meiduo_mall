@@ -1,17 +1,17 @@
 # iamqp==5.1.1
-asgiref==3.5.2
-async-timeout==4.0.2
-Authlib==1.1.0
-billiard==3.6.4.0
-bleach==5.0.1
-bottle==0.12.23
-cached-property==1.5.2
-celery==5.2.7
-certifi==2022.9.14
-cffi==1.15.1
-charset-normalizer==2.1.1
-click==8.1.3
-click-didyoumean==0.3.0
+# asgiref==3.5.2
+# async-timeout==4.0.2
+# Authlib==1.1.0
+# billiard==3.6.4.0
+# bleach==5.0.1
+# bottle==0.12.23
+# cached-property==1.5.2
+# celery==5.2.7
+# certifi==2022.9.14
+# cffi==1.15.1
+# charset-normalizer==2.1.1
+# click==8.1.3
+# click-didyoumean==0.3.0
 click-plugins==1.1.1
 click-repl==0.2.0
 coreapi==2.3.3
