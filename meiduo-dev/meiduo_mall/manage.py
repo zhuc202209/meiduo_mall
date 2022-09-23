@@ -2,7 +2,8 @@
 import os
 import sys
 import django
-import requests
+
+
 
 
 if __name__ == "__main__":
