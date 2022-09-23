@@ -1,2 +1,2 @@
-# meiduo_mall
-Djangp搭建的商城
+#meiduo_mall
+Django搭建的电子商城
