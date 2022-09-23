@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 import os
 import sys
+import django
+import requests
+# test git
+
+
 
 if __name__ == "__main__":
     # 修改，启动的时候 使用dev配置文件
