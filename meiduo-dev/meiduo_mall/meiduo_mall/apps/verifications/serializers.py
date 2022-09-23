@@ -17,12 +17,12 @@ class CheckImageCodeSerialzier(serializers.Serializer):
 
     def validate(self, attrs):
         """校验图片验证码是否正确"""
-        image_code_id = attrs['image_code_id']
-        text = attrs['text']
+        image_code_id = attrs.get['image_code_id']
+        text = attrs.get['text']
 
         # 查询redis数据库，获取真实的验证码
         redis_conn = get_redis_connection('verify_codes')
-        real_image_code = redis_conn.get('img_%s' % image_code_id)
+        real_image_code = redis_conn.get(f'img_{image_code_id}')
 
         if real_image_code is None:
             # 过期或者不存在
@@ -30,7 +30,7 @@ class CheckImageCodeSerialzier(serializers.Serializer):
 
         # 删除redis中的图片验证码，防止用户对同一个进行多次请求验证
         try:
-            redis_conn.delete('img_%s' % image_code_id)
+            redis_conn.delete(f'img_{image_code_id}')
         except RedisError as e:
             logger.error(e)
 
@@ -42,7 +42,7 @@ class CheckImageCodeSerialzier(serializers.Serializer):
         # redis中发送短信验证码的标志 send_flag_<mobile>  : 1, 由redis维护60s的有效期
         mobile = self.context['view'].kwargs.get('mobile')
         if mobile:
-            send_flag = redis_conn.get('send_flag_%s' % mobile)
+            send_flag = redis_conn.get(f'send_flag_{mobile}')
             if send_flag:
                 raise serializers.ValidationError('发送短信次数过于频繁')
 
